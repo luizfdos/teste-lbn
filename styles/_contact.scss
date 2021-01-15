@@ -1,9 +1,10 @@
 .form-section {
-  min-height: 80vh;
+  height: 80vh;
   @include flex(center, center, row);
   color: $gray-text;
   form {
-    width: 50vw;
+    max-width: 715px;
+    max-height: 75vh;
     p {
       margin-top: 1rem;
       font-size: 2.3rem;
@@ -36,7 +37,7 @@
     textarea {
       font-family: "Montserrat", sans-serif;
       font-size: 2rem;
-      height: 20rem;
+      height: 15rem;
       resize: none;
     }
     button {

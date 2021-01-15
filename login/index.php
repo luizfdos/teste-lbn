@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<?php 
+session_start();
+?>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <meta name="robots" content="index, follow">
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="shortcut icon" href="../assets/icons/code.svg" type="image/x-icon">
-    <title>LuizFDOS | Web Developer</title>
+    <link type="image/png" href="favicon.ico" rel="shortcut icon">
+    <title>Login</title>
   </head>
 <body>
   <header class="main-head">
@@ -23,19 +26,29 @@
       </div>
       <ul>
         <li><a href="../">Início</a></li>
-        <li><a href="index.html" class="active">Contato</a></li>
-        <li><a class="login active">Login</a></li>
+        <li><a href="../contato/" class="">Contato</a></li>
+        <li><a class="login active" href="./login/">Login</a></li>
       </ul>
     </nav>
   </header>
   <section class="form-section login">
-    <form action=""
+    <form action="../login.php"
     method="POST">
       <h1>Login</h1>
+      <?php
+      if(isset($_SESSION['nao_autenticado'])):
+      ?>
+      <div class="notification error">
+        <p>ERRO: Usuário ou senha inválidos.</p>
+      </div>
+      <?php
+      endif;
+      unset($_SESSION['nao_autenticado']);
+      ?>
       <label for="user">Usuário</label>
-      <input type="text" name="name" id="name" required>
-      <label for="subject">Assunto</label>
-      <input type="text" name="subject" id="subject" required>
+      <input type="text" name="user" id="user" required>
+      <label for="password">Senha</label>
+      <input type="password" name="password" id="password" required>
       <button type="submit">Entrar</button>
     </form>
   </section>
