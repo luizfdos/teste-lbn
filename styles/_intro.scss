@@ -1,0 +1,107 @@
+.main-head {
+  width: 95%;
+  margin: 0 0 0 auto;
+}
+
+nav {
+  @include flex(space-between, center, row);
+  min-height: 10vh;
+  width: 60%;
+  flex-wrap: wrap;
+  .logo {
+    color: $gray-text;
+    @include flex(flex-start, center, row);
+    flex: 1 1 10rem;
+    h1 {
+      margin: 2rem;
+    }
+  }
+  ul {
+    @include flex(space-around, center, row);
+    flex: 1 1 40rem;
+  }
+  a {
+    position: relative;
+    font-weight: 500;
+    transition: 0.5s;
+    &.active:hover {
+      opacity: 0.9;
+    }
+  }
+  a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: $gray-text;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+  }
+  a:hover::after {
+    width: 100%;
+    transition: 400ms ease-in-out;
+  }
+  a.active:hover::after {
+    width: 0;
+  }
+
+}
+
+.intro {
+  min-height: 80vh;
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+  @include flex(space-between, center, row);
+
+  h2 {
+    font-size: 8rem;
+    padding-top: 2rem;
+    background: $gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  h3 {
+    font-size: 6rem;
+    padding: 2rem 0rem;
+  }
+  p {
+    padding-top: 2rem;
+    color: $gray-text;
+  }
+} 
+
+.intro-social {
+  margin-top: 4rem;
+  a {
+    margin-right: 5rem;
+  }
+  img {
+    transition: 300ms;
+    &:hover {
+      box-shadow: 0px 10px 10px rgba($color: #929292, $alpha: 0.2);
+      transform: translateY(-5px)
+    }
+  }
+}
+
+.active {
+  background: $button-color;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+}
+
+.intro-text {
+  flex: 2 2 40rem;
+}
+.intro-images {
+  flex: 1 1 10rem;
+}
+
+.intro-images img {
+  width: 50rem;
+  border-radius: 50%;
+}

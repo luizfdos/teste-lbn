@@ -1,0 +1,63 @@
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: $main-bg-color;
+}
+h1 {
+  font-size: $header1;
+}
+li,
+button,
+label,
+input,
+a,
+p {
+  font-size: $text;
+}
+h2 {
+  font-size: $header2;
+}
+h3 {
+  font-size: $header3;
+  color: $gray-text;
+}
+h4,
+h5 {
+  font-size: $header4;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: $gray-text;
+}
+
+a.login {
+  background: $button-color;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($color: $button-color, $amount: 10);
+  }
+  &:focus {
+    background: rgb(92, 137, 163);
+    font-weight: bold;
+    outline: 2px solid black;
+  }
+}
