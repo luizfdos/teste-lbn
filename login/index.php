@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if($_SESSION['user']) {
+  header('Location: index.php');
+  exit();
+} else {
+  exit();
+}
+?>
 <!DOCTYPE html>
 <?php 
 session_start();
@@ -13,8 +22,8 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link type="image/png" href="favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="../styles/1styles.css">
+    <link type="image/png" href="../favicon.ico" rel="shortcut icon">
     <title>Login</title>
   </head>
 <body>

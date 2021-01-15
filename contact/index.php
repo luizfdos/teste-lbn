@@ -1,5 +1,8 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link type="image/png" href="favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="../styles/1styles.css">
+    <link type="image/png" href="../favicon.ico" rel="shortcut icon">
     <title>LuizFDOS | Web Developer</title>
   </head>
 <body>
@@ -23,8 +26,29 @@
       </div>
       <ul>
         <li><a href="../">Início</a></li>
-        <li><a href="index.html" class="active">Contato</a></li>
-        <li><a class="login active" href="../login/">Login</a></li>
+        <li><a href="index.php" class="active">Contato</a></li>
+        <?php
+        if(!$_SESSION['user']):
+        ?>
+          <li><a class="login active" href="./login/">Login</a></li>
+        <?php
+        endif;
+        unset($_SESSION['nao_autenticado']);
+        ?>
+        <?php
+        if($_SESSION['user']):
+        ?>
+          <li>
+            <div class="dropdown">
+              <span>Olá, <?php echo $_SESSION['user'];?></span>
+              <div class="dropdown-content">
+                <a href="logout.php">Sair</a>
+              </div>
+            </div>
+          </li>
+        <?php
+        endif;
+        ?>
       </ul>
     </nav>
   </header>

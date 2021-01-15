@@ -1,5 +1,8 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +27,28 @@
       <ul>
         <li><a class="active" href="/">Início</a></li>
         <li><a href="./contact/">Contato</a></li>
-        <li><a class="login active" href="./login/">Login</a></li>
+        <?php
+        if(!$_SESSION['user']):
+        ?>
+          <li><a class="login active" href="./login/">Login</a></li>
+        <?php
+        endif;
+        unset($_SESSION['nao_autenticado']);
+        ?>
+        <?php
+        if($_SESSION['user']):
+        ?>
+          <li>
+            <div class="dropdown">
+              <span>Olá, <?php echo $_SESSION['user'];?></span>
+              <div class="dropdown-content">
+                <a href="logout.php">Sair</a>
+              </div>
+            </div>
+          </li>
+        <?php
+        endif;
+        ?>
       </ul>
     </nav>
   </header>
