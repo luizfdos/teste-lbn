@@ -32,6 +32,7 @@ $gray-text: #afa9a0;
     .intro-text {
       flex: 1 1 35vw;
     }
+    
   }
   
   nav {
@@ -40,15 +41,20 @@ $gray-text: #afa9a0;
 }
 
 @media screen and (max-width: 939px) {
-  .intro-images {
+  .intro-images img{
     text-align: center;
+    width: 30rem;
     margin: 2rem 0rem;
   }
 }
 
 @media screen and (max-width: 754px) {
   html {
-    font-size: 45%;
+    font-size: 40%;
+  }
+  .intro {
+    width: 98%;
+    margin: auto;
   }
   .main-head {
     width: 100%;
@@ -64,12 +70,18 @@ $gray-text: #afa9a0;
       margin: 2rem 0rem;
     }
   }
-  .intro-text {
+  .intro .intro-text {
     margin-top: 5rem;
     text-align: left;
+    p {
+      width: 95%;
+      margin: auto;
+    }
   }
   .intro-images {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center
   }
   .intro-social {
     @include flex(center, center, row);
@@ -80,27 +92,48 @@ $gray-text: #afa9a0;
   .form-section form {
     padding: 3rem;
     width: 100%;
-    height: 70vh;
+    height: 100%;
     label, input, button, textarea {
       font-size: 2.8rem;
     }
   }
-}
-
-@media (max-height: 615px) {
   footer {
     display: none;
   }
+}
 
-  .form-section.login form {
+@media (max-height: 615px) {
+  .form-section {
     height: 100%;
+  }
+  .form-section form {
+    height: 100%;
+    padding: 2rem 0rem;
     max-height: 100%;
   }
 
 }
 
 @media (max-height: 545px) {
-  .form-section.login form {
+  .form-section form {
     padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .home {
+    display: none;
+  } 
+  .form-section form {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    
+    button {
+      padding: 1rem;
+    }
+    .info {
+      display: none;
+    }
   }
 }
